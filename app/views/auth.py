@@ -9,8 +9,8 @@ auth_ns = Namespace('auth')
 class AuthView(Resource):
     def post(self):
         data = request.json
-        email = data.get("email", None)
-        password = data.get("password", None)
+        email = data.get("email")
+        password = data.get("password")
 
         if None in [email, password]:
             abort(400)

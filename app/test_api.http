@@ -1,0 +1,11 @@
+POST http://127.0.0.1:5000/auth/register
+#Accept: application/json
+Content-Type: application/json
+
+{
+  "name": "artur",
+  "surname": "olenberg",
+  "email": "olenberg.ai@yandex.ru",
+  "password":"password",
+  "role": "admin"
+}
