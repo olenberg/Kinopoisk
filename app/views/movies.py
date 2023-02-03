@@ -10,8 +10,8 @@ movie_schema = MovieSchema()
 movies_schema = MovieSchema(many=True)
 
 @movies_ns.route('/')
-class DirectorsView(Resource):
-    @auth_required
+class MoviesView(Resource):
+    # @auth_required
     def get(self):
         filters = request.args
         all_movies = movie_service.get_all(filters)
@@ -19,7 +19,7 @@ class DirectorsView(Resource):
 
 
 @movies_ns.route('/<int:mid>')
-class DirectorView(Resource):
+class MovieView(Resource):
     @auth_required
     def get(self, mid):
         movie = movie_service.get_one(mid)

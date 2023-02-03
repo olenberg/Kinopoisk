@@ -13,8 +13,8 @@ class DirectorDAO:
         page = filters.get("page")
 
         if page is not None:
-            result = self.session.query(Director).paginate(int(page), Config.RECORDS_PER_PAGE,
-                                                           max_per_page=Config.MAX_PAGE, error_out=False).items
+            result = self.session.query(Director).paginate(page=int(page), per_page=Config.RECORDS_PER_PAGE,
+                                                           error_out=False).items
             return result
 
         return self.session.query(Director).all()

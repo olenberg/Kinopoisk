@@ -1,3 +1,4 @@
+from flask import request
 from flask_restx import Resource, Namespace
 from app.dao.models.director import DirectorSchema
 from app.implemented import director_service
@@ -12,7 +13,8 @@ directors_schema = DirectorSchema(many=True)
 class DirectorsView(Resource):
     @auth_required
     def get(self):
-        all_directors = director_service.get_all()
+        filters = request.args
+        all_directors = director_service.get_all(filters)
         return directors_schema.dump(all_directors), 200
 
 
